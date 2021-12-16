@@ -1,0 +1,54 @@
+#+begin_src shell :eval yes
+    VAR="apple"
+  
+    echo "
+  apple,101
+  orange,200
+  mango,300
+  avocado,400
+  apple,500
+    " |   awk -F , -v name=$VAR '
+      $1 == name {
+	    count += $2;
+      }
+      END {
+	  print count
+      }'
+#+end_src
+
+#+RESULTS:
+: 601
+
+#+BEGIN_SRC python :results output
+  def greeting():
+      return("Hello!!!")
+  print(greeting())
+#+END_SRC
+
+#+RESULTS:
+: Hello!!!
+
+#+begin_src shell :results table
+
+  seq 15|xargs -n5 | column -t
+
+  #+end_src
+
+#+RESULTS:
+|  1 |  2 |  3 |  4 |  5 |
+|  6 |  7 |  8 |  9 | 10 |
+| 11 | 12 | 13 | 14 | 15 |
+
+
+#+begin_src C : include "<stdio.h>" 
+  int a=1;
+  int b=1;
+  printf("%d\n", a+b);
+#+end_src
+
+#+RESULTS:
+
+#+begin_src C++ :includes <iostream>
+  std::cout<<"Hello World!\n";
+#+end_src
+
